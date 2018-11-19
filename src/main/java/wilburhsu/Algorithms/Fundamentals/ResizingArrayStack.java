@@ -1,4 +1,10 @@
+package wilburhsu.Algorithms.Fundamentals;
+
 import java.util.Iterator;
+
+/**
+ *算法1.1 下压（LIFO）栈（能够动态调整数组大小的实现）
+ * */
 
 public class ResizingArrayStack<Item> implements Iterable<Item>{
 	private Item[] a = (Item[]) new Object[1];

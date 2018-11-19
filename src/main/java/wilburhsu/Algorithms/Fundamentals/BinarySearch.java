@@ -1,10 +1,14 @@
+package wilburhsu.Algorithms.Fundamentals;
+
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Scanner;
+
+/**
+ * ¶þ·Ö²éÕÒ
+ * */
 
 public class BinarySearch {
 	public static int rank(int key,int[] a){
