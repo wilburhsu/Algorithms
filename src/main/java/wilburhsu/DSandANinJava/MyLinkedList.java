@@ -48,24 +48,22 @@ public class MyLinkedList<AnyType> implements Iterable<AnyType>{
     }
 
     public void add(int idx, AnyType x){
-        //Todo
-
+        addBefore(getNode(idx, 0, size()), x);
     }
 
     public AnyType get(int idx){
-        //Todo
-        return null;
-
+        return getNode(idx).data;
     }
 
     public AnyType set(int idx, AnyType newVal){
-        return null;
-
+        Node<AnyType> p = getNode(idx);
+        AnyType oldVal = p.data;
+        p.data = newVal;
+        return oldVal;
     }
 
     public AnyType remove(int idx){
-        //Todo
-        return null;
+        return remove(getNode(idx));
     }
 
     private void addBefore(Node<AnyType> p,AnyType x){
@@ -77,15 +75,33 @@ public class MyLinkedList<AnyType> implements Iterable<AnyType>{
     }
 
     private AnyType remove(Node<AnyType> p){
-        return null;
+        p.next.prev = p.prev;
+        p.prev.next = p.next;
+        theSize--;
+        modCount++;
+
+        return p.data;
     }
 
     private Node<AnyType> getNode(int idx){
-        return null;
+        return getNode(idx, 0 , size() - 1);
     }
 
     private Node<AnyType> getNode(int idx,int lower,int upper){
-        return null;
+        Node<AnyType> p;
+        if(idx < lower || idx > upper)
+            throw new IndexOutOfBoundsException();
+
+        if(idx < size() / 2){
+            p = beginMarker.next;
+            for(int i = 0; i < idx;i++)
+                p = p.next;
+        }else {
+            p = endMarker;
+            for(int i = size(); i > idx; i--)
+                p = p.prev;
+        }
+        return p;
     }
 
     public Iterator<AnyType> iterator(){

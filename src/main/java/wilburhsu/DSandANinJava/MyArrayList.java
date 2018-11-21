@@ -2,7 +2,7 @@ package wilburhsu.DSandANinJava;
 
 import java.util.Iterator;
 
-public class MyArrayList<AnyType> implements Iterable<AnyType> {
+public class  MyArrayList<AnyType> implements Iterable<AnyType> {
 
     private static final int DEFAULT_CAPACITY = 10;//默认大小
     private int theSize;//当前大小
@@ -25,7 +25,7 @@ public class MyArrayList<AnyType> implements Iterable<AnyType> {
         return theSize;
     }
     public boolean isEmpty(){
-        return size()==0;
+        return size() == 0;
     }
     public void trimToSize(){
         ensureCapacity(size());
@@ -71,12 +71,12 @@ public class MyArrayList<AnyType> implements Iterable<AnyType> {
     }
 
     public AnyType remove(int idx){
-        AnyType removeItem = theItems[idx];
+        AnyType removedItem = theItems[idx];
         for(int i = idx;i < size() - 1;i++ )
             theItems[i] = theItems[i+1];
 
         theSize--;
-        return  removeItem;
+        return  removedItem;
     }
 
     public Iterator<AnyType> iterator(){
@@ -85,6 +85,7 @@ public class MyArrayList<AnyType> implements Iterable<AnyType> {
 
     private class ArrayListIterator implements Iterator<AnyType> {
         private int current = 0;
+        private boolean okToRemove = false;
         public boolean hasNext(){
             return current < size();
         }
@@ -92,15 +93,34 @@ public class MyArrayList<AnyType> implements Iterable<AnyType> {
         public AnyType next(){
             if(!hasNext())
                 throw new java.util.NoSuchElementException();
+            okToRemove = true;
             return theItems[current++];
         }
 
         public void remove(){
+            if( !okToRemove )
+                throw new IllegalStateException( );
             MyArrayList.this.remove(--current);
+            okToRemove = false;
         }
     }
+}
 
 
+class TestArrayList
+{
+    public static void main( String [ ] args )
+    {
+        MyArrayList<Integer> lst = new MyArrayList<>( );
 
+        for( int i = 0; i < 10; i++ )
+            lst.add( i );
+        for( int i = 20; i < 30; i++ )
+            lst.add( 0, i );
 
+        lst.remove( 0 );
+        lst.remove( lst.size( ) - 1 );
+
+        System.out.println( lst );
+    }
 }
