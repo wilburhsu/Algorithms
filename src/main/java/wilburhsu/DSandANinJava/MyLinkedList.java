@@ -26,9 +26,9 @@ public class MyLinkedList<AnyType> implements Iterable<AnyType>{
     }
 
     private  void doClear(){
-        beginMarker = new Node<AnyType>(null,null,null);//¹¹ÔìÒ»¸ö¿ÕµÄÊ×½Úµã
-        endMarker = new Node<AnyType>(null,beginMarker,null);//¹¹ÔìÒ»¸öÎ²½Úµã£¬ÆäÇ°ÖÃ½ÚµãÖÃÎªÊ×½Úµã
-        beginMarker.next = endMarker;//½«Ê×½ÚµãµÄºóÖÃ½ÚµãÖÃÎªÎ²½Úµã
+        beginMarker = new Node<AnyType>(null,null,null);//æ„é€ ä¸€ä¸ªç©ºçš„é¦–èŠ‚ç‚¹
+        endMarker = new Node<AnyType>(null,beginMarker,null);//æ„é€ ä¸€ä¸ªå°¾èŠ‚ç‚¹ï¼Œå‰ç½®èŠ‚ç‚¹ä¸ºé¦–èŠ‚ç‚¹
+        beginMarker.next = endMarker;//å°†é¦–èŠ‚ç‚¹çš„åç½®èŠ‚ç‚¹ç½®ä¸ºå°¾èŠ‚ç‚¹
 
         theSize = 0;
         modCount++;

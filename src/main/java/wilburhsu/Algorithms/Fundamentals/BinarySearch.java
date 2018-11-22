@@ -7,7 +7,7 @@ import edu.princeton.cs.algs4.StdOut;
 import java.util.Arrays;
 
 /**
- * ¶ş·Ö²éÕÒ
+ * äºŒåˆ†æŸ¥æ‰¾
  * */
 
 public class BinarySearch {

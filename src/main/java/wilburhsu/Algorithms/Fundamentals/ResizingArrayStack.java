@@ -3,7 +3,7 @@ package wilburhsu.Algorithms.Fundamentals;
 import java.util.Iterator;
 
 /**
- *Ëã·¨1.1 ÏÂÑ¹£¨LIFO£©Õ»£¨ÄÜ¹»¶¯Ì¬µ÷ÕûÊı×é´óĞ¡µÄÊµÏÖ£©
+ *ç®—æ³•1.1 ä¸‹å‹ï¼ˆLIFOï¼‰æ ˆ ï¼ˆèƒ½å¤ŸåŠ¨æ€è°ƒæ•´æ•°ç»„å¤§å°çš„å®ç°ï¼‰
  * */
 
 public class ResizingArrayStack<Item> implements Iterable<Item>{

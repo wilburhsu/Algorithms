@@ -4,8 +4,8 @@ import java.util.Iterator;
 
 public class  MyArrayList<AnyType> implements Iterable<AnyType> {
 
-    private static final int DEFAULT_CAPACITY = 10;//默认大小
-    private int theSize;//当前大小
+    private static final int DEFAULT_CAPACITY = 10;//榛樿瀹归噺澶у皬
+    private int theSize;//褰撳墠瀹归噺澶у皬
     private AnyType [ ] theItems;
 
     public MyArrayList(){

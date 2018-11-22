@@ -6,7 +6,7 @@ import edu.princeton.cs.algs4.StdOut;
 import java.util.Iterator;
 
 /**
- * 算法1.2 下压堆栈（链表实现）
+ * 绠楁硶1.2 涓嬪帇鍫嗘爤锛堥摼琛ㄥ疄鐜帮級
  * */
 
 public class Stack<Item> implements Iterable<Item>{
