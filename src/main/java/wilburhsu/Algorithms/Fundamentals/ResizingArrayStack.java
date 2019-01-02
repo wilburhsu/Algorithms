@@ -3,7 +3,7 @@ package wilburhsu.Algorithms.Fundamentals;
 import java.util.Iterator;
 
 /**
- *算法1.1 下压（LIFO）栈 （能够动态调整数组大小的实现）
+ *算法1.1 下压（LIFO）栈 （能够动态调整数组大小的实现） P88
  * */
 
 public class ResizingArrayStack<Item> implements Iterable<Item>{
@@ -36,7 +36,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item>{
 		return item;
 	}
 
-	@Override
+	//@Override
 	public Iterator<Item> iterator() {
 		return null;
 	}

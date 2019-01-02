@@ -6,7 +6,7 @@ import edu.princeton.cs.algs4.StdOut;
 import java.util.Iterator;
 
 /**
- * 算法1.2 下压堆栈（链表实现）
+ * 算法1.2 下压堆栈（链表实现）P94
  * */
 
 public class Stack<Item> implements Iterable<Item>{
@@ -39,7 +39,7 @@ public class Stack<Item> implements Iterable<Item>{
 		return item;
 	}
 
-	@Override
+	//@Override
 	public Iterator<Item> iterator(){
 		return null;
 	}
@@ -51,7 +51,7 @@ public class Stack<Item> implements Iterable<Item>{
 		public void remove(){
 
 		}
-		@Override
+		//@Override
 		public Item next() {
 			Item item = current.item;
 			current = current.next;

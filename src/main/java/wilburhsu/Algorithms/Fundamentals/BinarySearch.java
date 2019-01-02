@@ -7,7 +7,7 @@ import edu.princeton.cs.algs4.StdOut;
 import java.util.Arrays;
 
 /**
- * 二分查找
+ * 二分查找 P28
  * */
 
 public class BinarySearch {
