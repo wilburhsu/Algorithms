@@ -1,7 +1,6 @@
 package wilburhsu.Algorithms.Fundamentals;
 
 import java.util.Iterator;
-import java.util.ListIterator;
 
 /**
  * 算法1.4 背包 P98
