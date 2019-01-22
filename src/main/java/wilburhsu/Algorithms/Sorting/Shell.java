@@ -1,11 +1,12 @@
 package wilburhsu.Algorithms.Sorting;
 
+//
 public class Shell {
-<<<<<<< HEAD
+
     public static void sort(Comparable[] a){
 
     }
-=======
+
     public static void main(String[] args) {
 
     }
@@ -22,5 +23,6 @@ public class Shell {
 //            }
 //        }
 //    }
->>>>>>> 2c440323784b9c6363e06c622d1403225f5df1d3
+
+
 }
