@@ -1,6 +1,8 @@
 package wilburhsu.Algorithms.Sorting;
 
-//
+/**
+ * 算法2.3 希尔排序 P163
+ * */
 public class Shell {
 
     public static void sort(Comparable[] a){

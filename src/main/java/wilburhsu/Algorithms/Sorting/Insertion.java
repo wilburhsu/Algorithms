@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
 /**
- * 算法1.2 插入排序 P157
+ * 算法2.2 插入排序 P157
  * */
 
 public class Insertion {

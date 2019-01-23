@@ -1,5 +1,9 @@
 package wilburhsu.Algorithms.Sorting;
 
+/**
+ * 算法2.4 自顶向下的归并排序 P171
+ * */
+
 public class Merge {
     public static void main(String[] args) {
 
