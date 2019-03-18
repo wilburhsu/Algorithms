@@ -1,17 +1,16 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+<<<<<<< HEAD:src/test/java/TestGitAdd.java
+//201801031525 Test Add
 
-public class Test {
+public class TestGitAdd {
     public static void main(String[] args) {
-        System.out.println("start");
-        assert true;
-        System.out.println("go on");
-        assert false:"stop";
-        System.out.println("end");
-        //Collections.sort();
-        List list = new ArrayList<>();
-        //list.sort();
-
+        System.out.println("Hello,Java");
     }
 }
+=======
+public class Test {
+    public static void main(String[] args) {
+        System.out.println("Hello,Java");
+        System.out.println("测试");
+    }
+}
+>>>>>>> dev:src/test/java/Test.java
