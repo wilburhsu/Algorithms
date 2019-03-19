@@ -28,11 +28,8 @@ public class MaxPQ<Key extends Comparable<Key>> {
 
     public Key delMax(){
         Key max = pq[1];//从根节点得到最大元素
-<<<<<<< HEAD
-        exch(1,N--);//将其和最后一个结点交换
-=======
         exch(1,N--);//将其和最后一个结点交换，执行这一步后当前N值为N-1
->>>>>>> macdev
+
         pq[N+1] = null;//防止越界
         sink(1);//恢复堆的有序性
         return max;
