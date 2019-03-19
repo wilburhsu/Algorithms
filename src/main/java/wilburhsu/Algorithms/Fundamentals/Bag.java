@@ -15,13 +15,13 @@ public class Bag<Item> implements Iterable<Item>{
     }
 
     public void add(Item item){
-        Node oldfirst = first;
+        Node oldFirst = first;
         first = new Node();
         first.item = item;
-        first.next = oldfirst;
+        first.next = oldFirst;
     }
 
-    @Override
+    //@Override
     public Iterator<Item> iterator() {
         return new ListIterator();
     }
