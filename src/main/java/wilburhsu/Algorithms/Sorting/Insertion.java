@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-package wilburhsu.Algorithms.Sorting;
-
-/**
- * 算法1.2 插入排序 P157
- * */
-
-public class Insertion {
-
-
-}
-=======
 package wilburhsu.Algorithms.Sorting;
 
 import edu.princeton.cs.algs4.In;
@@ -59,4 +47,3 @@ public class Insertion {
         insertion.show(a);
     }
 }
->>>>>>> dev
