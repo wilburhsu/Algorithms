@@ -57,7 +57,7 @@ public class SequentialSearchST<Key,Value> {
             return queue;
         }
 
-        //TODO delete()方法
+        //Todo delete()方法
         public void delete(Key key){
             if(key == null)
                 throw new IllegalArgumentException("key s null in function delete");
