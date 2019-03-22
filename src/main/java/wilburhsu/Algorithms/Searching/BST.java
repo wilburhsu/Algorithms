@@ -68,6 +68,42 @@ public class BST <Key extends Comparable<Key>,Value>{
             x.val = val;
         x.N = size(x.left) + size(x.right) + 1;
         return x;
+
+    }
+
+    /*二叉查找树中max()、min()、floor()、ceiling()方法的实现*/
+    public Key min(){
+        return min(root).key;
+    }
+
+    private Node min(Node x){
+        if (x.left == null)
+            return x;
+        return min(x.left);
+    }
+
+    public Key floor(Key key){
+        Node x = floor(root,key);
+        if(x == null)
+            return null;
+        return x.key;
+    }
+
+    private Node floor(Node x,Key key){
+        if(x == null)
+            return null;
+        int cmp = key.compareTo(x.key);
+        if(cmp == 0)
+            return x;
+        if(cmp < 0)
+            return floor(x.left,key);
+        else if(cmp > 0)
+            return floor(x.right,key);
+        Node t = floor(x.right,key);
+        if(t != null)
+            return t;
+        else
+            return x;
     }
 
 
