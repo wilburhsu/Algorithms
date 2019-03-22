@@ -106,5 +106,47 @@ public class BST <Key extends Comparable<Key>,Value>{
             return x;
     }
 
+    /*二叉查找树中selec()和rank()方法的实现*/
+    public Key select(int k){
+        return select(root,k).key;
+    }
+
+    private Node select(Node x,int k){//找到排名为k的键（即树中正好有k个小于它的键）
+        if(x == null)
+            return null;
+        int t = size(x.left);//获得左子树的结点数t
+        if(t > k)
+            return select(x.left,k);//如果t>k，那么继续在左子树中（递归）查找排名为k的键
+        else if(t < k)
+            return select(x.right,k-t-1);//如果t<k，那么在右子树中（递归）查找排名为（k-t-1）的键
+        else
+            return x;
+    }
+
+    public int rank(Key key){
+        return rank(key,root);
+    }
+
+    private int rank(Key key,Node x){
+        //返回以x为根结点的子树中小于x.key的键的数量
+        if(x == null)
+            return 0;
+        int cmp = key.compareTo(x.key);
+        if(cmp < 0)
+            return rank(key,x.left);
+        else if(cmp > 0)
+            return 1 + size(x.left) + rank(key, x.right);
+        else
+            return size(x.left);
+    }
+
+    /*二叉查找树的delete()方法的实现*/
+    //Todo
+
+
+    /*二叉查找树的范围查找操作*/
+    //Todo
+
+
 
 }
