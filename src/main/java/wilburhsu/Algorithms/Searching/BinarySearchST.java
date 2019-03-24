@@ -85,13 +85,30 @@ public class BinarySearchST<Key extends Comparable <Key>,Value> {
     }
 
     public Key floor(Key key){
-
-        return  null;
+        int i = rank(key);
+        if(i < N && keys[i].compareTo(key) == 0)
+            return keys[i];
+        else if(i == 0)
+            return  null;
+        else
+            return keys[i-1];
     }
 
     public Key delete(Key key){
+        int k = rank(key);
+        Key tmp = null;
+        if(k < N && keys[k] .compareTo(key) == 0){
+            tmp = keys[k];
+            for(int j = k;j < N-1; j++){
+                keys[j] = keys[j+1];
+                vals[j] = vals[j+1];
+            }
+            N--;
 
-        return null;
+            keys[N] = null;
+            vals[N] = null;
+        }
+        return tmp;
     }
 
     public Iterable<Key> keys(Key lo,Key hi){
