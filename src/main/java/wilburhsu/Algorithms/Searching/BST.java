@@ -124,7 +124,8 @@ public class BST <Key extends Comparable<Key>,Value>{
         return select(root,k).key;
     }
 
-    private Node select(Node x,int k){//找到排名为k的键（即树中正好有k个小于它的键）
+    //找到排名为k的键（即树中正好有k个小于它的键）
+    private Node select(Node x,int k){
         if(x == null)
             return null;
         int t = size(x.left);//获得左子树的结点数t
@@ -140,8 +141,8 @@ public class BST <Key extends Comparable<Key>,Value>{
         return rank(key,root);
     }
 
+    //返回以x为根结点的子树中小于x.key的键的数量
     private int rank(Key key,Node x){
-        //返回以x为根结点的子树中小于x.key的键的数量
         if(x == null)
             return 0;
         int cmp = key.compareTo(x.key);
