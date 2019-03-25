@@ -43,12 +43,10 @@ public class SequentialSearchST<Key,Value> {
             N++;
         }
 
-        //Todo size()方法
         public int size(){
             return N;
         }
 
-        //Todo key()方法
         public Iterable<Key> key(){
             Queue<Key> queue = new LinkedList<>();
             for(Node cur = first; cur != null; cur = cur.next){
@@ -57,7 +55,6 @@ public class SequentialSearchST<Key,Value> {
             return queue;
         }
 
-        //Todo delete()方法
         public void delete(Key key){
             if(key == null)
                 throw new IllegalArgumentException("key s null in function delete");

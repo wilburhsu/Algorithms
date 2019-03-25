@@ -1,5 +1,8 @@
 package wilburhsu.Algorithms.Searching;
 
+
+import wilburhsu.Algorithms.Fundamentals.Queue;
+
 /**
  * 算法3.3 基于二叉查找树的符号表 P252
  * */
@@ -82,6 +85,16 @@ public class BST <Key extends Comparable<Key>,Value>{
         return min(x.left);
     }
 
+    public Key max(){
+        return max(root).key;
+    }
+
+    private Node max(Node x){
+        if (x.right == null)
+            return x;
+        return min(x.left);
+    }
+
     public Key floor(Key key){
         Node x = floor(root,key);
         if(x == null)
@@ -106,7 +119,7 @@ public class BST <Key extends Comparable<Key>,Value>{
             return x;
     }
 
-    /*二叉查找树中selec()和rank()方法的实现*/
+    /*二叉查找树中select()和rank()方法的实现*/
     public Key select(int k){
         return select(root,k).key;
     }
@@ -141,12 +154,67 @@ public class BST <Key extends Comparable<Key>,Value>{
     }
 
     /*二叉查找树的delete()方法的实现*/
-    //Todo
+    public void deleteMin(){
+        root = deleteMin(root);
+    }
 
+    private Node deleteMin(Node x){
+        if(x.left == null)
+            return x.right;
+        x.left = deleteMin(x.left);
+        x.N = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+
+    public void delete(Key key){
+        root = delete(root,key);
+    }
+
+    private Node delete(Node x,Key key){
+        if(x == null)
+            return null;
+        int cmp = key.compareTo(x.key);
+        if(cmp < 0)
+            x.left = delete(x.left,key);
+        else if(cmp > 0)
+            x.right = delete(x.right,key);
+        else {
+            if(x.right == null)
+                return x.left;
+            if (x.left == null)
+                return x.right;
+            Node t = x;
+            x = min(t.right);
+            x.right = deleteMin(t.right);
+            x.left = t.left;
+        }
+        x.N = size(x.left) + size(x.right) + 1;
+        return x;
+    }
 
     /*二叉查找树的范围查找操作*/
     //Todo
+    public Iterable<Key> keys(){
+        return keys(min(),max());
+    }
 
+    public Iterable<Key> keys(Key lo,Key hi){
+        Queue<Key> queue = new Queue<>();
+        keys(root,queue,lo,hi);
+        return queue;
+    }
 
+    private void keys(Node x, Queue<Key> queue, Key lo, Key hi){
+        if(x == null)
+            return;
+        int cmplo = lo.compareTo(x.key);
+        int cmphi = hi.compareTo(x.key);
+        if(cmplo < 0)
+            keys(x.left,queue,lo,hi);
+        if(cmplo <= 0 && cmphi >= 0)
+            queue.enqueue(x.key);
+        if(cmphi > 0)
+            keys(x.right,queue,lo,hi);
+    }
 
 }
