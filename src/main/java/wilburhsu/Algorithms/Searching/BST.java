@@ -1,6 +1,5 @@
 package wilburhsu.Algorithms.Searching;
 
-
 import wilburhsu.Algorithms.Fundamentals.Queue;
 
 /**
@@ -159,7 +158,7 @@ public class BST <Key extends Comparable<Key>,Value>{
         root = deleteMin(root);
     }
 
-    private Node deleteMin(Node x){
+    private Node deleteMin(Node x){//返回被删除结点的右链接，被删除结点的左链接为空
         if(x.left == null)
             return x.right;
         x.left = deleteMin(x.left);
@@ -176,25 +175,26 @@ public class BST <Key extends Comparable<Key>,Value>{
             return null;
         int cmp = key.compareTo(x.key);
         if(cmp < 0)
-            x.left = delete(x.left,key);
+            x.left = delete(x.left,key);//向左子树中递归删除调用
         else if(cmp > 0)
-            x.right = delete(x.right,key);
-        else {
-            if(x.right == null)
+            x.right = delete(x.right,key);//向右子树中递归删除调用
+        else {//x.key等于当前搜索到的结点的key值，即找到了要删除的结点
+            if(x.right == null)//要删除的结点右链接为空，即当前结点只有左链接，则返回左链接
                 return x.left;
-            if (x.left == null)
+            if(x.left == null)//要删除的结点左链接为空，即当前结点只有右链接，则返回右链接
                 return x.right;
-            Node t = x;
-            x = min(t.right);
-            x.right = deleteMin(t.right);
-            x.left = t.left;
+            //被删除的结点有左右两个链接
+            Node t = x;//step1：将指向即将被删除的结点的链接保存为t
+            x = min(t.right);//step2：取t的右子树，然后不断检查左子树，找到要被删除的结点的右子树中的最小结点，并将x指向该最小结点，此时x的左链接为空
+            x.right = deleteMin(t.right);//step3：删除找到的t结点右子树中的最小结点
+            x.left = t.left;//step4：将右子树中最小结点的左链接（本为空）设为t.left
         }
+
         x.N = size(x.left) + size(x.right) + 1;
         return x;
     }
 
     /*二叉查找树的范围查找操作*/
-    //Todo
     public Iterable<Key> keys(){
         return keys(min(),max());
     }
@@ -210,11 +210,11 @@ public class BST <Key extends Comparable<Key>,Value>{
             return;
         int cmplo = lo.compareTo(x.key);
         int cmphi = hi.compareTo(x.key);
-        if(cmplo < 0)
+        if(cmplo < 0)//查找左子树
             keys(x.left,queue,lo,hi);
-        if(cmplo <= 0 && cmphi >= 0)
+        if(cmplo <= 0 && cmphi >= 0)//查找根结点
             queue.enqueue(x.key);
-        if(cmphi > 0)
+        if(cmphi > 0)//查找右子树
             keys(x.right,queue,lo,hi);
     }
 
