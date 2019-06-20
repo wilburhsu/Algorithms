@@ -1,4 +1,4 @@
-package CodingInterview;
+package wilburhsu.CodingInterview;
 
 public class _24_VerifySequenceOfBST {
     public boolean verifySequenceOfBST(int[] sequence){

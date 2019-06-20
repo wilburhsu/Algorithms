@@ -1,4 +1,4 @@
-package HuaWeiOnline;
+package wilburhsu.HuaWeiOnline;
 
 public class Split {
     public static void main(String[] args) {
