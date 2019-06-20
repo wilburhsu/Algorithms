@@ -1,4 +1,4 @@
-package CodingInterview;
+package wilburhsu.CodingInterview;
 
 public class _66_StringPathInMatrix {
     public boolean hasPath(char[] matrix, int rows, int cols, char[] str){

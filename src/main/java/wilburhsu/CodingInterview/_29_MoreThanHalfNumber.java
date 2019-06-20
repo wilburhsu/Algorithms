@@ -1,4 +1,4 @@
-package CodingInterview;
+package wilburhsu.CodingInterview;
 
 import java.util.HashMap;
 import java.util.Map;

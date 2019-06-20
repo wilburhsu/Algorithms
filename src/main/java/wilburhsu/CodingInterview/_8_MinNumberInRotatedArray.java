@@ -1,4 +1,4 @@
-package CodingInterview;
+package wilburhsu.CodingInterview;
 
 public class _8_MinNumberInRotatedArray {
     public int minNumberInRotateArray(int [] array) {

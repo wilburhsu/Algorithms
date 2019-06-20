@@ -1,4 +1,4 @@
-package CodingInterview;
+package wilburhsu.CodingInterview;
 
 /**
  * 面试题5：替换空格

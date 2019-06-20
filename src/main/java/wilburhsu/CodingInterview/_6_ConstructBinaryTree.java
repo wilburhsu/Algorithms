@@ -1,4 +1,4 @@
-package CodingInterview;
+package wilburhsu.CodingInterview;
 
 public class _6_ConstructBinaryTree {
     private class TreeNode{

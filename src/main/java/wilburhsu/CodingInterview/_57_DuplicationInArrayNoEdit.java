@@ -1,4 +1,4 @@
-package CodingInterview;
+package wilburhsu.CodingInterview;
 
 /**
  * 第二版面试题3：题目二——不修改数组找出重复的数字

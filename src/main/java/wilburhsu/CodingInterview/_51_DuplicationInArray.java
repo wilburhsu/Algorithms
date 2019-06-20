@@ -1,7 +1,7 @@
-package CodingInterview;
+package wilburhsu.CodingInterview;
 
 /**
- * 面试题3：题目一——数组中重复的数字
+ * 面试题51：数组中重复的数字
  */
 
 public class _51_DuplicationInArray {

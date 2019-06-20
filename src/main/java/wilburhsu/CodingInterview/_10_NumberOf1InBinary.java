@@ -1,4 +1,4 @@
-package CodingInterview;
+package wilburhsu.CodingInterview;
 
 public class _10_NumberOf1InBinary {
     public int NumberOf1(int n) {

@@ -1,4 +1,4 @@
-package CodingInterview;
+package wilburhsu.CodingInterview;
 
 /**
  * 第12题:打印1到最大的n位数
