@@ -1,16 +1,8 @@
-<<<<<<< HEAD:src/test/java/TestGitAdd.java
-//201801031525 Test Add
-
-public class TestGitAdd {
-    public static void main(String[] args) {
-        System.out.println("Hello,Java");
-    }
-}
-=======
 public class Test {
     public static void main(String[] args) {
-        System.out.println("Hello,Java");
-        System.out.println("测试");
+        String string = "test";
+        Integer integer = new Integer(1);
+        String str = String.format("This is a %s,%d",string,integer);
+        System.out.println(str);
     }
 }
->>>>>>> dev:src/test/java/Test.java
