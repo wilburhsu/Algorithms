@@ -24,7 +24,8 @@ public class _38_NumberOfK {
 
         if(start < array.length && array[start] == k)
             return start;
-        return -1;
+        else
+            return -1;
     }
 
     public int getLast(int[] array,int start,int end,int k){
@@ -38,6 +39,43 @@ public class _38_NumberOfK {
         }
         if(end >= 0 && array[end] == k)
             return end;
+        else
+            return -1;
+    }
+
+    public int getFirstK(int[] array,int start,int end,int k){
+        int mid;
+        while(start <= end){
+            mid = start + (end - start)/2;
+            if(k < array[mid])
+                end = mid - 1;
+            else if (k > array[mid])
+                start  = mid +1;
+            else {// 找到了k值所在的位置，k == array[mid]
+                if((mid > 0 && array[mid - 1] != k ) || mid == 0)
+                    return mid;
+                else
+                    end = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    public int getLastK(int[] array,int start,int end,int k){
+        int mid;
+        while (start <= end){
+            mid = start + (end - start)/2;
+            if(k < array[mid])
+                end = mid - 1;
+            else if(k > array[mid])
+                start = mid + 1;
+            else {
+                if((mid < array.length - 1 && array[mid + 1] != k )|| mid == array.length - 1)
+                    return mid;
+                else
+                    start = mid + 1;
+            }
+        }
         return -1;
     }
 
