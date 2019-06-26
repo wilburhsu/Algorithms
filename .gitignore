@@ -5,9 +5,5 @@ algs4-data/
 *.iml
 target/
 *.classpath
-<<<<<<< HEAD
 /.settings
 
-=======
-/.settings
->>>>>>> master
