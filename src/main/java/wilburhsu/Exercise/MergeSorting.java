@@ -1,4 +1,4 @@
-package wilburhsu.Exercise.Sorting;
+package wilburhsu.Exercise;
 
 import java.util.Arrays;
 
