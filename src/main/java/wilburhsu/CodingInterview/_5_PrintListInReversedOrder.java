@@ -7,14 +7,6 @@ import java.util.Stack;
  * */
 
 public class _5_PrintListInReversedOrder {
-    static class ListNode {
-        int val;
-        ListNode next = null;
-
-        ListNode(int val) {
-            this.val = val;
-        }
-    }
 
     private ArrayList<Integer> list = new ArrayList<>();
 
