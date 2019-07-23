@@ -4,8 +4,7 @@ package wilburhsu.CodingInterview;
  * 第二版面试题3：题目二——不修改数组找出重复的数字
  */
 
-
-public class _57_DuplicationInArrayNoEdit {
+public class _51_DuplicationInArrayNoEdit {
 
     //思路1：通过辅助数组解决，空间复杂度O(N)
     public static int getDuplicationFunction(int[] numbers){
