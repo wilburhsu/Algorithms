@@ -1,22 +1,20 @@
 package wilburhsu.CodingInterview;
 
-import java.io.Console;
-
 public class _62_SerializeBinaryTree {
     String Serialize(TreeNode root) {
-        StringBuilder builder = new StringBuilder();
-        pre(root, builder);
-        return builder.toString();
+        StringBuffer buffer = new StringBuffer();
+        pre(root, buffer);
+        return buffer.toString();
     }
 
-    public void pre(TreeNode node, StringBuilder builder) {
+    public void pre(TreeNode node, StringBuffer buffer) {
         if(node == null) {
-            builder.append("#,");
+            buffer.append("#,");
         }
         else {
-            builder.append(node.val + ",");
-            pre(node.left, builder);
-            pre(node.right, builder);
+            buffer.append(node.val + ",");
+            pre(node.left, buffer);
+            pre(node.right, buffer);
         }
     }
 
@@ -29,7 +27,6 @@ public class _62_SerializeBinaryTree {
             node = new TreeNode(Integer.valueOf(arr[index]));
             node.left = Deserialize(str);
             node.right = Deserialize(str);
-
         }
         return node;
     }
