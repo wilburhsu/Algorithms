@@ -6,18 +6,18 @@ import java.util.Queue;
 public class _62_SerializeBinaryTree {
     String Serialize(TreeNode root) {
         StringBuffer buffer = new StringBuffer();
-        pre(root, buffer);
+        serialize(root, buffer);
         return buffer.toString();
     }
 
-    public void pre(TreeNode node, StringBuffer buffer) {
+    public void serialize(TreeNode node, StringBuffer buffer) {
         if(node == null) {
             buffer.append("#,");
         }
         else {
             buffer.append(node.val + ",");
-            pre(node.left, buffer);
-            pre(node.right, buffer);
+            serialize(node.left, buffer);
+            serialize(node.right, buffer);
         }
     }
 
@@ -27,16 +27,16 @@ public class _62_SerializeBinaryTree {
         for(int i = 0; i < res.length; i++){
             queue.offer(res[i]);
         }
-        return pre(queue);
+        return deserialize(queue);
     }
 
-    TreeNode pre(Queue<String> queue){
+    TreeNode deserialize(Queue<String> queue){
         String val = queue.poll();
         if(val.equals("#"))
             return null;
         TreeNode node = new TreeNode(Integer.parseInt(val));
-        node.left = pre(queue);
-        node.right = pre(queue);
+        node.left = deserialize(queue);
+        node.right = deserialize(queue);
         return node;
     }
 
