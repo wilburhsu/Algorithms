@@ -1,35 +1,16 @@
 package wilburhsu;
 
-import java.util.ArrayList;
-import java.util.Stack;
-
-
-
 public class Solution {
-    public int reverse(int x) {
-        if(x < Integer.MIN_VALUE || x > Integer.MAX_VALUE)
-            return 0;
-        while(x%10 == 0)
-            x = x/10;
-        String number = String.valueOf(x);
-        char[] chars = number.toCharArray();
-        int i = 0;
-        if(chars[0] == '+' || chars[0] == '-')
-            i = 1;
-        int j = chars.length - 1;
-        char tmp = ' ';
-        while(i <= j){
-            tmp = chars[i];
-            chars[i] = chars[j];
-            chars[j] = tmp;
-            i++;
-            j--;
-        }
-        return Integer.valueOf(String.valueOf(chars)).intValue();
-    }
+    public static void main(String[] args) throws Exception {
+        System.out.print("Progress:");
+        for (int i = 1; i <= 100; i++) {
+            System.out.print(i + "%");
+            Thread.sleep(100);
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.reverse(123000));
+            for (int j = 0; j <= String.valueOf(i).length(); j++) {
+                System.out.print("\b");
+            }
+        }
+        System.out.println();
     }
 }

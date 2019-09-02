@@ -1,33 +1,42 @@
 package wilburhsu.CodingInterview;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class _62_SerializeBinaryTree {
     String Serialize(TreeNode root) {
         StringBuffer buffer = new StringBuffer();
-        pre(root, buffer);
+        serialize(root, buffer);
         return buffer.toString();
     }
 
-    public void pre(TreeNode node, StringBuffer buffer) {
+    public void serialize(TreeNode node, StringBuffer buffer) {
         if(node == null) {
             buffer.append("#,");
         }
         else {
             buffer.append(node.val + ",");
-            pre(node.left, buffer);
-            pre(node.right, buffer);
+            serialize(node.left, buffer);
+            serialize(node.right, buffer);
         }
     }
 
-    int index = -1;
     TreeNode Deserialize(String str) {
-        String[] arr = str.split(",");
-        TreeNode node = null;
-        index++;
-        if(!arr[index].equals("#")) {
-            node = new TreeNode(Integer.valueOf(arr[index]));
-            node.left = Deserialize(str);
-            node.right = Deserialize(str);
+        String [] res = str.split(",");
+        Queue<String> queue = new LinkedList<>();
+        for(int i = 0; i < res.length; i++){
+            queue.offer(res[i]);
         }
+        return deserialize(queue);
+    }
+
+    TreeNode deserialize(Queue<String> queue){
+        String val = queue.poll();
+        if(val.equals("#"))
+            return null;
+        TreeNode node = new TreeNode(Integer.parseInt(val));
+        node.left = deserialize(queue);
+        node.right = deserialize(queue);
         return node;
     }
 
@@ -57,7 +66,7 @@ public class _62_SerializeBinaryTree {
 
         _62_SerializeBinaryTree serialize = new _62_SerializeBinaryTree();
         String res= serialize.Serialize(A);
-        System.out.println("<------------>" + res);
+        System.out.println("" + res);
         TreeNode head = serialize.Deserialize(res);
         serialize.PreOrderUnRecur(head);
     }
