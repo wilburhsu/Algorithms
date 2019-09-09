@@ -25,7 +25,7 @@ public class _9_PalindromeNumber {
             int right = x % 10;
             if(left != right)
                 return false;
-            x = (x % div) / 10;//同时去掉最高位和最低位
+            x = (x % div) / 10;//去掉最高位后再去掉最低位
             div /= 100;
         }
         return true;
