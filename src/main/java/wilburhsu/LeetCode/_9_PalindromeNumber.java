@@ -32,16 +32,21 @@ public class _9_PalindromeNumber {
     }
 
     public boolean isPalindrome2(int x) {
-        int pop = 0;
-        while(pop <= x){
-            pop = x%10;
+        if(x < 0 || (x % 10 == 0 && x != 0))
+            return false;
+        int rev = 0;
+        while(rev < x){ //注意这里循环结束的条件不能带=号
+            int pop = x % 10;
+            rev = rev * 10 + pop;
+            x  = x/10;
         }
-
-        return true;
+        return rev == x || rev/10 == x;
     }
 
     public static void main(String[] args) {
         Object object = new Object();
         object.hashCode();
+        _9_PalindromeNumber palindromeNumber = new _9_PalindromeNumber();
+        System.out.println(palindromeNumber.isPalindrome2(1225665221));
     }
 }
