@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class _13_RomanToInteger {
+    //解法一：HashMap，占用额外空间，效率较低
     public int romanToInt(String s) {
         Map<String,Integer> map = new HashMap<>();
         map.put("I",1);
@@ -29,6 +30,44 @@ public class _13_RomanToInteger {
                 ans += map.get(s.substring(i,i+1));
                 i++;
             }
+        }
+        return ans;
+    }
+
+    /**
+     * 解法二：高效解法
+     * 1.定义一个获取罗马字符对应数字的静态方法，使用switch来获取字符对应数字
+     * 2.遍历从第一个字符开始，比较当前字符与下一字符对应数字大小，大于等于则加，否则减，最后一个字符直接加
+     * */
+    public static int getValue(char c){
+        switch (c){
+            case 'I':
+                return 1;
+            case 'V':
+                return 5;
+            case 'X':
+                return 10;
+            case 'L':
+                return 50;
+            case 'C':
+                return 100;
+            case 'D':
+                return 500;
+            case 'M':
+                return 1000;
+            default:
+                throw  new IllegalArgumentException("Illegal character");
+        }
+    }
+
+    public int romanToInt2(String s){
+        int ans = 0;
+        for(int i = 0;i < s.length();i++){
+            int current = getValue(s.charAt(i));
+            if(i == s.length() - 1 || current >= getValue(s.charAt(i + 1)))
+                ans += current;
+            else
+                ans -= current;
         }
         return ans;
     }
