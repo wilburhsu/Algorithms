@@ -1,6 +1,7 @@
 package wilburhsu.LeetCode;
 
 public class _14_LongestCommonPrefix {
+    //解法一：水平扫描
     public String longestCommonPrefix(String[] strs) {
         if(strs.length <= 0)
             return new String("");
@@ -14,5 +15,19 @@ public class _14_LongestCommonPrefix {
             }
         }
         return prefix;
+    }
+
+    //解法二：垂直扫描
+    public String longestCommonPrefixVertical(String[] strs){
+        if(strs.length <= 0)
+            return new String("");
+        for(int i = 0;i < strs[0].length();i++){
+            char c = strs[0].charAt(i);
+            for(int j = 1;j < strs.length;j++){
+                if(i == strs[j].length() || strs[j].charAt(i) != c)
+                    return strs[0].substring(0,i);
+            }
+        }
+        return strs[0];
     }
 }
