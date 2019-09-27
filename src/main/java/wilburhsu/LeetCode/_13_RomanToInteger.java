@@ -65,7 +65,7 @@ public class _13_RomanToInteger {
         for(int i = 0;i < s.length();i++){
             int current = getValue(s.charAt(i));
             //在条件语句（java/c）中，使用‘&&’时，若第一项为false，则判别为false，若为true，则判断下一项。
-            // ‘||’原则与‘&&’相同
+            //‘||’原则与‘&&’相同
             //所以可避免charAt越界
             if(i == s.length() - 1 || current >= getValue(s.charAt(i + 1)))
                 ans += current;
