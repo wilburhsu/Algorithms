@@ -6,5 +6,5 @@ algs4-data/
 target/
 *.classpath
 /.settings
-src/test
+src/test/
 
