@@ -49,6 +49,7 @@ public class _56_MergeIntervals {
                 high = intervals[i][1];
             }
         }
+        //low和high最后一次赋值后没有加入到结果集中，所以这里要再添加一次
         res.add(new int[]{low, high});
         int[][] result = new int[res.size()][2];
         for (int i = 0; i < res.size(); i++) {
