@@ -3,7 +3,7 @@ package wilburhsu.CodingInterview;
 import java.util.Arrays;
 
 /**
- * 面试题51：数组中重复的数字
+ * 面试题51（第二版第3题）：数组中重复的数字
  */
 
 public class _51_DuplicationInArray {
