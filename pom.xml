@@ -18,8 +18,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>edu.princeton.cs.algs4</groupId>
+            <groupId>org.coursera.algs4.algs4</groupId>
             <artifactId>algs4</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.coursera.algs4.stdlib</groupId>
+            <artifactId>stdlib</artifactId>
             <version>1.0</version>
         </dependency>
         <dependency>
