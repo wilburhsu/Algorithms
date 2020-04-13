@@ -27,25 +27,41 @@ public class _51_DuplicationInArrayNoEdit {
 
     //思路2 时间复杂度O(NlogN) 空间复杂度O(1)
     public static int getDuplication(int[] numbers){
-        if(numbers == null || numbers.length <=0)
+        if(numbers == null || numbers.length<=0)
             return -1;
 
-        for(int i = 0;i<numbers.length;i++){
-            if(numbers[i] < 1 || numbers[i] >= numbers.length)
+        for(int i = 0;i < numbers.length; i++){
+            if(numbers[i] < 1 || numbers[i]>numbers.length-1)
                 return -1;
         }
 
         int start = 1;
         int end = numbers.length-1;
-        int count = 0;
 
-        while(start <= end){
-            int mid = (start+end)/2;
+        while (start <= end){
+            int mid = (start + end)/2;
+            int count = countRange(numbers,start,mid);
+
+            if(start == end){
+                if(count > 1)
+                    return start;
+                else
+                    break;
+            }
+
+            if(count > (mid-start+1))
+                end = mid;
+            else
+                start = mid + 1;
         }
+        return -1;
+    }
 
+    public static int countRange(int[] numbers,int start,int end){
         if(numbers == null)
             return 0;
 
+        int count = 0;
         for(int i = 0;i<numbers.length;i++)
             if(numbers[i] >= start && numbers[i] <= end)
                 count++;
@@ -53,8 +69,35 @@ public class _51_DuplicationInArrayNoEdit {
 
     }
 
+//    public static int getDuplication(int[] numbers){
+//        if(numbers == null || numbers.length <=0)
+//            return -1;
+//
+//        for(int i = 0;i<numbers.length;i++){
+//            if(numbers[i] < 1 || numbers[i] >= numbers.length)
+//                return -1;
+//        }
+//
+//        int start = 1;
+//        int end = numbers.length-1;
+//        int count = 0;
+//
+//        while(start <= end){
+//            int mid = (start+end)/2;
+//        }
+//
+//        if(numbers == null)
+//            return 0;
+//
+//        for(int i = 0;i<numbers.length;i++)
+//            if(numbers[i] >= start && numbers[i] <= end)
+//                count++;
+//        return count;
+//
+//    }
+
     public static void main(String[] args) {
-        int[] numbers = { 1, 3, 5, 4, 2, 5, 6, 7 };
+        int[] numbers = { 1, 3, 5, 4, 2, 5, 6, 1 };
         int result = getDuplication(numbers);
         System.out.println(result);
     }
