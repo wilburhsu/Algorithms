@@ -1,5 +1,7 @@
 package wilburhsu.CodingInterview;
 
+import java.util.Arrays;
+
 /**
  * 面试题51（第二版第3题）：数组中重复的数字
  */
@@ -26,6 +28,22 @@ public class _51_DuplicationInArray {
                 int tmp = numbers[i];
                 numbers[i] = numbers[tmp];
                 numbers[tmp] = tmp;
+            }
+        }
+        return false;
+    }
+
+    public boolean duplicate(int[] numbers,int length,int[] duplication) {
+        if(null == numbers || length == 0){
+            duplication[0] = -1;
+            return false;
+        }
+
+        Arrays.sort(numbers);
+        for(int i = 0;i < length - 1;++i){
+            if(numbers[i] == numbers[i + 1]){
+                duplication[0] = numbers[i];
+                return true;
             }
         }
         return false;
