@@ -62,4 +62,15 @@ public class Quick {
         return true;
     }
 
+    public static void main(String[] args) {
+        Integer[] a = {39,878,466,9,5,8,7,40,545,4,9,65765,5478,313};
+        sort(a);
+        if(isSorted(a)){
+            System.out.println("已排序");
+        }else {
+            System.out.println("排序不成功");
+        }
+        show(a);
+    }
+
 }

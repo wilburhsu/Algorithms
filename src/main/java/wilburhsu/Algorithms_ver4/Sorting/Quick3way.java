@@ -3,6 +3,9 @@ package wilburhsu.Algorithms_ver4.Sorting;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
+/**
+ * 三向切分的快速排序 P189
+ * */
 public class Quick3way {
     public static void sort(Comparable[] a){
         StdRandom.shuffle(a);

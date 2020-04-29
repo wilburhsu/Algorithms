@@ -6,7 +6,23 @@ package wilburhsu.CodingInterview;
  * */
 
 public class _12_Print1ToMaxOfNDiigts {
-    public void print1ToMaxOfNDigits(int n){
+    public int[] printNumbers(int n) {
+        if(n <= 0)
+            return null;
+
+        char[] chars = new char[n];
+        for(int i = 0;i < n;++i)
+            chars[i] = '9';
+        String str = String.valueOf(chars);
+        int maxNum = Integer.parseInt(str);
+
+        int[] arr = new int[maxNum];
+        for(int i = 0;i < maxNum;++i)
+            arr[i] = i + 1;
+        return arr;
+    }
+
+    public void print1ToMaxOfNDigits2(int n){
         int[] array = new int[n];
         if(n <= 0)
             return;
@@ -38,6 +54,8 @@ public class _12_Print1ToMaxOfNDiigts {
 
     public static void main(String[] args) {
         _12_Print1ToMaxOfNDiigts digit = new _12_Print1ToMaxOfNDiigts();
-        digit.print1ToMaxOfNDigits(3);
+//        digit.print1ToMaxOfNDigits2(3);
+
+        System.out.println("<----->" + digit.printNumbers(1));
     }
 }
