@@ -15,12 +15,12 @@ public class QuickSort {
     }
 
     private int partition(int[] nums,int left,int right){
-        /*选取最左端元素为主元，在for循环中移动i和j之前，它们都要自增+1，所以扫描元素的范围为
+        /*选取最左端元素为主元，在for循环中移动i和j之前，i要自增+1，j要自减-1，所以扫描元素的范围为
          *[left+1,right]，所以i的起始值为left，j的起始值为right+1
          */
         int i = left,j = right + 1;
-//        int pivot = nums[left];
-        int pivot = median3(nums,left,right);
+        int pivot = nums[left];
+//        int pivot = median3(nums,left,right);
         for(;;) {
             while (nums[++i] <= pivot)
                 if(i == right)
